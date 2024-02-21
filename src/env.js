@@ -1,6 +1,7 @@
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
+
 export const env = createEnv({
   /**
    * Specify your server-side environment variables schema here. This way you can ensure the app
@@ -11,7 +12,7 @@ export const env = createEnv({
       .string()
       .url()
       .refine(
-        (str) => !str.includes("YOUR_MYSQL_URL_HERE"),
+        (str) => !str.includes("postgres://postgres.nxgzkhmpeckmeykhnibk:ThisIsMyPassword_1234@aws-0-ap-south-1.pooler.supabase.com:6543/postgres"),
         "You forgot to change the default URL"
       ),
     NODE_ENV: z
