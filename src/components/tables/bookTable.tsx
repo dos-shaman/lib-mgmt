@@ -40,6 +40,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Book } from "@prisma/client";
+import { any } from "zod";
 
 export const columns: ColumnDef<Book>[] = [
   {
@@ -89,6 +90,7 @@ export function BookTable({ data }: { data: Book[] }) {
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     [],
   );
+  const [filter, setFilter] = React.useState<any>("title");
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
@@ -117,10 +119,10 @@ export function BookTable({ data }: { data: Book[] }) {
       <h1 className="text-3xl font-bold mt-10 mb-10">Available Books in Library</h1>
       <div className="flex items-center py-4">
         <Input
-          placeholder="Book name"
-          value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
+          placeholder={`Filter by ${filter}`}
+          value={(table.getColumn(filter)?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("title")?.setFilterValue(event.target.value)
+            table.getColumn(filter)?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
@@ -139,9 +141,8 @@ export function BookTable({ data }: { data: Book[] }) {
                   <DropdownMenuCheckboxItem
                     key={column.id}
                     className="capitalize"
-                    checked={column.getIsVisible()}
                     onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
+                      setFilter(column.id)
                     }
                   >
                     {column.id}

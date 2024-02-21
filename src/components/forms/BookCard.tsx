@@ -128,7 +128,7 @@ export function BookCard() {
                           />
                         </SelectTrigger>
                         <SelectContent position="popper">
-                          <SelectItem value="motivation">Fantasy</SelectItem>
+                          <SelectItem value="fantasy">Fantasy</SelectItem>
                           <SelectItem value="love">Love</SelectItem>
                           <SelectItem value="horror">Horror</SelectItem>
                           <SelectItem value="comedy">Comedy</SelectItem>
