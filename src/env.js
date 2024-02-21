@@ -12,7 +12,7 @@ export const env = createEnv({
       .string()
       .url()
       .refine(
-        (str) => !str.includes("postgres://postgres.nxgzkhmpeckmeykhnibk:ThisIsMyPassword_1234@aws-0-ap-south-1.pooler.supabase.com:6543/postgres"),
+        (str) => !str.includes("YOUR_MYSQL_URL_HERE"),
         "You forgot to change the default URL"
       ),
     NODE_ENV: z

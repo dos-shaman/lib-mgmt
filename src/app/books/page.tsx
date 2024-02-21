@@ -6,7 +6,7 @@ const page = async () => {
   const books = await api.book.findMany.query();
   return (
     <div>
-      <BookTable data={books} columns={columns} />
+      <BookTable data={books} />
     </div>
   );
 };
