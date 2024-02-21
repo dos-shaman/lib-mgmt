@@ -166,12 +166,13 @@ export function BookCard() {
               <Button type="submit" className=" bg-black w-1/2 m-2 mt-5">
                 Add Books
               </Button>
-              <Button className="bg-black w-1/2 m-2 mt-5">
-                <Link href="/books">Books</Link>
-              </Button>
+
             </div>
           </form>
         </Form>
+        <Button className="bg-black w-1/2 m-2 mt-5">
+                <Link href="/books">Books</Link>
+              </Button>
       </CardContent>
       <CardFooter className="flex justify-between"></CardFooter>
     </Card>
